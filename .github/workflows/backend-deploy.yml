@@ -24,5 +24,6 @@ jobs:
       - uses: azure/webapps-deploy@v2
         with:
           app-name: simpleuserservice-eqg5a5a9frd5a5ca
+          slot-name: production
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: app.zip
