@@ -31,6 +31,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: simpleuserservice-eqg5a5a9frd5a5ca
+          app-name: simpleuserservice
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
           package: target/*.jar
