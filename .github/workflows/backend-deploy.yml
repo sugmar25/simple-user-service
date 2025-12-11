@@ -20,17 +20,13 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: mvn clean package -DskipTests
-
-      - name: Upload artifact for deployment
-        uses: actions/upload-artifact@v4
-        with:
-          name: app
-          path: target/*.jar
+        run: |
+          mvn clean package -DskipTests
+          zip -j app.zip target/*.jar
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: simpleuserservice-eqg5a5a9frd5a5ca
-          publish-profile: ${{secrets.AZURE_PUBLISH_PROFILE}}
-          package: target/*.jar
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: app.zip
