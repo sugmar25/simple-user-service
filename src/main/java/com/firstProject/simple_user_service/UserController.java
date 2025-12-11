@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
 public class UserController {
 
     private final Map<Long, User> users = new ConcurrentHashMap<>();
